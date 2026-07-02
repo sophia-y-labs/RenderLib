@@ -197,10 +197,10 @@ float3 RenderLib_VoronoiNoise2D(float2 uv)
             float2 cellId   = i + neighbor;
 
             // Random feature point inside this cell (offset from cell origin)
-            float2 point = neighbor + RenderLib_Hash22(cellId);
+            float2 featurePoint = neighbor + RenderLib_Hash22(cellId);
 
             // Vector from current pixel to that feature point
-            float2 diff = point - f;
+            float2 diff = featurePoint - f;
             float dist  = dot(diff, diff); // squared distance (cheaper, monotonic)
 
             if (dist < minDist1)

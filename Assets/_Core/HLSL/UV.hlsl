@@ -106,15 +106,6 @@ half4 RenderLib_TriplanarSample(
     TEXTURE2D_PARAM(tex, samplerTex),
     float3 positionWS,
     float3 normalWS,
-    float  scale)
-{
-    return RenderLib_TriplanarSample(TEXTURE2D_ARGS(tex, samplerTex), positionWS, normalWS, scale, RENDERLIB_TRIPLANAR_SHARPNESS);
-}
-
-half4 RenderLib_TriplanarSample(
-    TEXTURE2D_PARAM(tex, samplerTex),
-    float3 positionWS,
-    float3 normalWS,
     float  scale,
     float  sharpness)
 {
@@ -131,16 +122,16 @@ half4 RenderLib_TriplanarSample(
          + sampleZ * blendWeights.z;
 }
 
-// RGB-only variant (common for albedo; skips alpha blending artifacts)
-half3 RenderLib_TriplanarSampleRGB(
+half4 RenderLib_TriplanarSample(
     TEXTURE2D_PARAM(tex, samplerTex),
     float3 positionWS,
     float3 normalWS,
     float  scale)
 {
-    return RenderLib_TriplanarSample(TEXTURE2D_ARGS(tex, samplerTex), positionWS, normalWS, scale).rgb;
+    return RenderLib_TriplanarSample(TEXTURE2D_ARGS(tex, samplerTex), positionWS, normalWS, scale, RENDERLIB_TRIPLANAR_SHARPNESS);
 }
 
+// RGB-only variant (common for albedo; skips alpha blending artifacts)
 half3 RenderLib_TriplanarSampleRGB(
     TEXTURE2D_PARAM(tex, samplerTex),
     float3 positionWS,
@@ -149,6 +140,15 @@ half3 RenderLib_TriplanarSampleRGB(
     float  sharpness)
 {
     return RenderLib_TriplanarSample(TEXTURE2D_ARGS(tex, samplerTex), positionWS, normalWS, scale, sharpness).rgb;
+}
+
+half3 RenderLib_TriplanarSampleRGB(
+    TEXTURE2D_PARAM(tex, samplerTex),
+    float3 positionWS,
+    float3 normalWS,
+    float  scale)
+{
+    return RenderLib_TriplanarSample(TEXTURE2D_ARGS(tex, samplerTex), positionWS, normalWS, scale).rgb;
 }
 
 #endif // RENDERLIB_UV_INCLUDED

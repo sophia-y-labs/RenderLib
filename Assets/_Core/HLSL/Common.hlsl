@@ -88,25 +88,25 @@ half3 RenderLib_SafeNormalize(half3 v)
 // Piecewise exact sRGB transfer functions (not the fast approximations).
 // ---------------------------------------------------------------------------
 
-float RenderLib_LinearToSRGB(float linear)
+float RenderLib_LinearToSRGB(float linearValue)
 {
-    return (linear <= RENDERLIB_SRGB_LINEAR_CUTOFF)
-        ? linear * RENDERLIB_SRGB_LINEAR_SCALE
-        : RENDERLIB_SRGB_GAMMA_SCALE * pow(abs(linear), 1.0 / RENDERLIB_SRGB_GAMMA) - RENDERLIB_SRGB_GAMMA_OFFSET;
+    return (linearValue <= RENDERLIB_SRGB_LINEAR_CUTOFF)
+        ? linearValue * RENDERLIB_SRGB_LINEAR_SCALE
+        : RENDERLIB_SRGB_GAMMA_SCALE * pow(abs(linearValue), 1.0 / RENDERLIB_SRGB_GAMMA) - RENDERLIB_SRGB_GAMMA_OFFSET;
 }
 
-float3 RenderLib_LinearToSRGB(float3 linear)
+float3 RenderLib_LinearToSRGB(float3 linearRgb)
 {
     return float3(
-        RenderLib_LinearToSRGB(linear.r),
-        RenderLib_LinearToSRGB(linear.g),
-        RenderLib_LinearToSRGB(linear.b)
+        RenderLib_LinearToSRGB(linearRgb.r),
+        RenderLib_LinearToSRGB(linearRgb.g),
+        RenderLib_LinearToSRGB(linearRgb.b)
     );
 }
 
-half3 RenderLib_LinearToSRGB(half3 linear)
+half3 RenderLib_LinearToSRGB(half3 linearRgb)
 {
-    return half3(RenderLib_LinearToSRGB(float3(linear)));
+    return half3(RenderLib_LinearToSRGB(float3(linearRgb)));
 }
 
 float RenderLib_SRGBToLinear(float srgb)
