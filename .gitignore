@@ -21,6 +21,7 @@
 # IDE / editor local settings
 .vs/
 .vscode/
+.idea/
 .cursor/
 
 # Gradle cache directory
@@ -77,3 +78,4 @@ crashlytics-build.properties
 ehthumbs.db
 Thumbs.db
 Desktop.ini
+docs/PLAN.md
