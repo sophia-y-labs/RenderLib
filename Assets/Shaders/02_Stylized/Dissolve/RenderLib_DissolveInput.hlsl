@@ -4,9 +4,8 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E010 Dissolve — material constants
-// Property names must match RenderLib_Dissolve.shader Properties block.
-// Shared with E011 DissolveDirectional (same Input file).
+// E010 Dissolve / E011 DissolveDirectional — shared material constants
+// E010 Properties block omits direction fields; E011 exposes them.
 // ---------------------------------------------------------------------------
 
 CBUFFER_START(UnityPerMaterial)
@@ -17,6 +16,9 @@ CBUFFER_START(UnityPerMaterial)
     half   _EdgeWidth;
     half   _NoiseScale;
     float2 _NoiseOffset;
+    float4 _DissolveDirection;  // xyz = object-space sweep direction
+    half   _DirectionScale;     // remap dot(position, dir) to ~[0,1]
+    half   _NoiseStrength;      // noise perturbation on the sweep front
 CBUFFER_END
 
 TEXTURE2D(_BaseMap);
