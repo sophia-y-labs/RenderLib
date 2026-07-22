@@ -14,6 +14,7 @@ namespace RenderLib.PostProcess
 
         readonly Material m_Material;
         RTHandle m_CameraColorTarget;
+        RTHandle m_TempColor;
 
         protected Material Material => m_Material;
 
@@ -36,6 +37,17 @@ namespace RenderLib.PostProcess
 
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
+            // Temp RT required: Blitter cannot safely sample and write the same camera color target.
+            var desc = renderingData.cameraData.cameraTargetDescriptor;
+            desc.depthBufferBits = 0;
+            desc.msaaSamples = 1;
+            RenderingUtils.ReAllocateIfNeeded(
+                ref m_TempColor,
+                desc,
+                FilterMode.Bilinear,
+                TextureWrapMode.Clamp,
+                name: "_RenderLibPostTemp");
+
             ConfigureTarget(m_CameraColorTarget);
         }
 
@@ -43,7 +55,7 @@ namespace RenderLib.PostProcess
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            if (!IsActive(ref renderingData) || m_CameraColorTarget == null)
+            if (!IsActive(ref renderingData) || m_CameraColorTarget == null || m_TempColor == null)
                 return;
 
             CommandBuffer cmd = CommandBufferPool.Get();
@@ -51,12 +63,20 @@ namespace RenderLib.PostProcess
             using (new ProfilingScope(cmd, profilingSampler))
             {
                 SetupMaterial(ref renderingData);
-                Blitter.BlitCameraTexture(cmd, m_CameraColorTarget, m_CameraColorTarget, m_Material, 0);
+                // camera -> temp (apply effect), then temp -> camera (copy back)
+                Blitter.BlitCameraTexture(cmd, m_CameraColorTarget, m_TempColor, m_Material, 0);
+                Blitter.BlitCameraTexture(cmd, m_TempColor, m_CameraColorTarget);
             }
 
             context.ExecuteCommandBuffer(cmd);
             cmd.Clear();
             CommandBufferPool.Release(cmd);
+        }
+
+        public void Dispose()
+        {
+            m_TempColor?.Release();
+            m_TempColor = null;
         }
 
         protected static void SetIntensity(Material material, float intensity)
@@ -131,37 +151,26 @@ namespace RenderLib.PostProcess
 
         protected override void Dispose(bool disposing)
         {
+            m_RenderPass?.Dispose();
+            m_RenderPass = null;
             CoreUtils.Destroy(m_Material);
+            m_Material = null;
         }
     }
 
     /// <summary>
-    /// Minimal concrete pass used by Template_PostPass for compile/runtime smoke tests.
+    /// Shared Volume stack lookup for post Features / Passes.
     /// </summary>
-    public sealed class RenderLibTemplatePostPass : RenderLibPostProcessPass
+    internal static class RenderLibVolumeUtil
     {
-        readonly float m_Intensity;
-
-        public RenderLibTemplatePostPass(Material material, float intensity)
-            : base("RenderLib Template Post", material, RenderPassEvent.BeforeRenderingPostProcessing)
+        public static bool TryGetVolume<T>(out T component) where T : VolumeComponent
         {
-            m_Intensity = intensity;
-        }
-
-        protected override void SetupMaterial(ref RenderingData renderingData)
-        {
-            SetIntensity(Material, m_Intensity);
-        }
-    }
-
-    /// <summary>
-    /// Renderer Feature that runs Template_PostPass. Assign in URP Renderer (Step 0.4).
-    /// </summary>
-    public sealed class RenderLibTemplatePostFeature : RenderLibPostProcessFeature
-    {
-        protected override RenderLibPostProcessPass CreatePass(Material material)
-        {
-            return new RenderLibTemplatePostPass(material, m_Intensity);
+            component = null;
+            var stack = VolumeManager.instance?.stack;
+            if (stack == null)
+                return false;
+            component = stack.GetComponent<T>();
+            return component != null && component.active;
         }
     }
 }
