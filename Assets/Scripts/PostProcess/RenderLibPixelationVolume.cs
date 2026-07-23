@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 namespace RenderLib.PostProcess
 {
     /// <summary>
-    /// Volume settings for E030 Pixelation (screen-space UV quantization).
+    /// Volume settings for Pixelation (screen-space UV quantization).
     /// </summary>
     [Serializable]
     [VolumeComponentMenu("RenderLib/Pixelation")]

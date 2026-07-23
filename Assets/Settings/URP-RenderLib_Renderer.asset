@@ -12,8 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2eddfe39ab4534db61599e7aa5662b, type: 3}
   m_Name: RenderLibTemplatePostFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Shader: {fileID: 4800000, guid: 31d12fd3c94ab2849ab1388ce539d2e6, type: 3}
+  m_Intensity: 0
+--- !u!114 &-5839008517553691057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e934450eda8be94479bc5948e413b2e5, type: 3}
+  m_Name: RenderLibOutlinePostFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Shader: {fileID: 4800000, guid: 2df961fb0348ee141829c55bf04b991c, type: 3}
+  m_Intensity: 0
+--- !u!114 &-4787485294550164821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1648092d9281142ae0cfaa47805254, type: 3}
+  m_Name: RenderLibVignetteFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Shader: {fileID: 4800000, guid: f0cc6e68e98ae464289994c9328d3193, type: 3}
   m_Intensity: 0
 --- !u!114 &-3321408206336739792
 MonoBehaviour:
@@ -49,7 +79,9 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -7197902363760626868}
   - {fileID: -3321408206336739792}
-  m_RendererFeatureMap: 4c731ab0efe91b9c30363b7bd5fce7d1
+  - {fileID: -5839008517553691057}
+  - {fileID: -4787485294550164821}
+  m_RendererFeatureMap: 4c731ab0efe91b9c30363b7bd5fce7d14f66bb8eb0acf7aeab5aee627d6f8fbd
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

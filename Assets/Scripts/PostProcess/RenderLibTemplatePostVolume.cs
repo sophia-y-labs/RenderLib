@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 namespace RenderLib.PostProcess
 {
     /// <summary>
-    /// Smoke-test Volume for Template_PostPass (Step 4.1).
+    /// Smoke-test Volume for Template_PostPass.
     /// </summary>
     [Serializable]
     [VolumeComponentMenu("RenderLib/Template Post")]

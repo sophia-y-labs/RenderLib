@@ -1,6 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-200765217005398177
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: VP_Demo_PostProcess
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 4370559390107774650}
+  - {fileID: 856091379203096891}
+  - {fileID: 4113574038692332799}
+--- !u!114 &856091379203096891
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,34 +28,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16df405fc5c7f941aa94d5c44dd0cab, type: 3}
   m_Name: RenderLibOutlinePostVolume
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   intensity:
     m_OverrideState: 1
     m_Value: 1
   thickness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   outlineColor:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
---- !u!114 &11400000
+--- !u!114 &4113574038692332799
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: VP_Gallery_Default
+  m_Script: {fileID: 11500000, guid: 2e2a64ba82daa814c8f3dd1940fcaeab, type: 3}
+  m_Name: RenderLibVignetteVolume
   m_EditorClassIdentifier: 
-  components:
-  - {fileID: 8202065080898954809}
-  - {fileID: 3055366332132164219}
-  - {fileID: -200765217005398177}
-  - {fileID: 7232421385442154195}
---- !u!114 &3055366332132164219
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.4
+  vignetteColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &4370559390107774650
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,45 +75,7 @@ MonoBehaviour:
   active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.3
   pixelSize:
     m_OverrideState: 1
-    m_Value: 8
---- !u!114 &7232421385442154195
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2a64ba82daa814c8f3dd1940fcaeab, type: 3}
-  m_Name: RenderLibVignetteVolume
-  m_EditorClassIdentifier: 
-  active: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.7
-  smoothness:
-    m_OverrideState: 1
-    m_Value: 0.5
-  vignetteColor:
-    m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
---- !u!114 &8202065080898954809
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e13132a3fba83e49afa673a21c56c28, type: 3}
-  m_Name: RenderLibTemplatePostVolume
-  m_EditorClassIdentifier: 
-  active: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.15
+    m_Value: 16
