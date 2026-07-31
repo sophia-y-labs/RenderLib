@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8866228225395052969
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda130b8f103b30499d9caf3f262a073, type: 3}
+  m_Name: RenderLibUnderwaterVolume
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.9
+  fogDensity:
+    m_OverrideState: 1
+    m_Value: 0.08
+  underwaterColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.05, g: 0.25, b: 0.35, a: 1}
+  absorption:
+    m_OverrideState: 1
+    m_Value: {r: 0.55, g: 0.85, b: 1, a: 1}
 --- !u!114 &-200765217005398177
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -39,6 +64,7 @@ MonoBehaviour:
   - {fileID: 3055366332132164219}
   - {fileID: -200765217005398177}
   - {fileID: 7232421385442154195}
+  - {fileID: -8866228225395052969}
 --- !u!114 &3055366332132164219
 MonoBehaviour:
   m_ObjectHideFlags: 3
