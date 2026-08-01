@@ -58,6 +58,42 @@ half RenderLib_HalfLambert(half3 normal, half3 lightDir)
 }
 
 // ---------------------------------------------------------------------------
+// WrapNdotL: soft diffuse that wraps light past the terminator
+// wrap = 0 -> classic Lambert; higher (e.g. 0.5) -> softer shadowed side
+// ---------------------------------------------------------------------------
+
+float RenderLib_WrapNdotL(float3 normal, float3 lightDir, float wrap)
+{
+    float3 n = RenderLib_SafeNormalize(normal);
+    float3 l = RenderLib_SafeNormalize(lightDir);
+    float w = max(wrap, 0.0);
+    return saturate((dot(n, l) + w) / (1.0 + w));
+}
+
+half RenderLib_WrapNdotL(half3 normal, half3 lightDir, half wrap)
+{
+    return half(RenderLib_WrapNdotL(float3(normal), float3(lightDir), float(wrap)));
+}
+
+// ---------------------------------------------------------------------------
+// SSSTranslucency: cheap backlight / through-thickness approximation
+// Strong when light is behind the surface (negative NdotL)
+// ---------------------------------------------------------------------------
+
+float RenderLib_SSSTranslucency(float3 normal, float3 lightDir, float power)
+{
+    float3 n = RenderLib_SafeNormalize(normal);
+    float3 l = RenderLib_SafeNormalize(lightDir);
+    float back = saturate(-dot(n, l));
+    return pow(back, max(power, 0.001));
+}
+
+half RenderLib_SSSTranslucency(half3 normal, half3 lightDir, half power)
+{
+    return half(RenderLib_SSSTranslucency(float3(normal), float3(lightDir), float(power)));
+}
+
+// ---------------------------------------------------------------------------
 // ToonRampSteps: banded shading without a ramp texture (good for prototyping)
 // steps = number of discrete brightness levels (e.g. 3 = 3-tone toon)
 // ---------------------------------------------------------------------------
