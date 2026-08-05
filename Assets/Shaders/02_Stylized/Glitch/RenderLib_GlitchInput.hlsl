@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E014 Glitch — material constants
+// Glitch — material constants
 // Property names must match RenderLib_Glitch.shader Properties block.
 // ---------------------------------------------------------------------------
 

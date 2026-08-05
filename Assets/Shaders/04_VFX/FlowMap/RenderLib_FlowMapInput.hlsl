@@ -1,21 +1,25 @@
-#ifndef RENDERLIB_OUTLINEHULL_INPUT_INCLUDED
-#define RENDERLIB_OUTLINEHULL_INPUT_INCLUDED
+#ifndef RENDERLIB_FLOWMAP_INPUT_INCLUDED
+#define RENDERLIB_FLOWMAP_INPUT_INCLUDED
 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// OutlineHull — shared constants for Forward + Hull passes
-// Property names must match RenderLib_OutlineHull.shader Properties block.
+// FlowMap — material constants
+// Property names must match RenderLib_FlowMap.shader Properties block.
 // ---------------------------------------------------------------------------
 
 CBUFFER_START(UnityPerMaterial)
     half4  _BaseColor;
-    half4  _OutlineColor;
     float4 _BaseMap_ST;
-    half   _OutlineWidth;
+    float4 _FlowMap_ST;
+    half   _FlowStrength;
+    half   _FlowSpeed;
 CBUFFER_END
 
 TEXTURE2D(_BaseMap);
 SAMPLER(sampler_BaseMap);
 
-#endif // RENDERLIB_OUTLINEHULL_INPUT_INCLUDED
+TEXTURE2D(_FlowMap);
+SAMPLER(sampler_FlowMap);
+
+#endif // RENDERLIB_FLOWMAP_INPUT_INCLUDED

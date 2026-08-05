@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E003 ToonLit — material constants
+// ToonLit — material constants
 // Property names must match RenderLib_ToonLit.shader Properties block.
 // ---------------------------------------------------------------------------
 

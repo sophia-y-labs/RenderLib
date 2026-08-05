@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 namespace RenderLib.PostProcess
 {
     /// <summary>
-    /// Volume settings for E031 screen-space outline (Depth + Normal Sobel).
+    /// Volume settings for screen-space outline (Depth + Normal Sobel).
     /// </summary>
     [Serializable]
     [VolumeComponentMenu("RenderLib/Outline Post")]

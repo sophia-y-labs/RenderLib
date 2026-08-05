@@ -4,9 +4,9 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E015 RimLight — material constants
+// RimLight — material constants
 // Property names must match RenderLib_RimLight.shader Properties block.
-// Rim property names align with E003 ToonLit for consistency.
+// Rim property names align with ToonLit for consistency.
 // ---------------------------------------------------------------------------
 
 CBUFFER_START(UnityPerMaterial)

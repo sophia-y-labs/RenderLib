@@ -98,7 +98,7 @@ half4 frag(Varyings input) : SV_Target
                  + l3.rgb * w.a;
 
     // ----------------------------------------------------------------
-    // 4) Simple Lambert (same idea as E002)
+    // 4) Simple Lambert (same idea as LambertDiffuse)
     // ----------------------------------------------------------------
     Light mainLight = GetMainLight();
     half ndotl = half(RenderLib_NdotL(input.normalWS, mainLight.direction));

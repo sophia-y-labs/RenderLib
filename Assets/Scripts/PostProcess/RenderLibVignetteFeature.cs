@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 namespace RenderLib.PostProcess
 {
     /// <summary>
-    /// Full-screen pass for E032 radial vignette.
+    /// Full-screen pass for radial vignette.
     /// </summary>
     public sealed class RenderLibVignettePass : RenderLibPostProcessPass
     {
@@ -36,7 +36,7 @@ namespace RenderLib.PostProcess
     }
 
     /// <summary>
-    /// Renderer Feature for E032 Vignette. File name must match this class.
+    /// Renderer Feature for Vignette. File name must match this class.
     /// </summary>
     public sealed class RenderLibVignetteFeature : RenderLibPostProcessFeature
     {

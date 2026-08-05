@@ -4,8 +4,8 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E010 Dissolve / E011 DissolveDirectional — shared material constants
-// E010 Properties block omits direction fields; E011 exposes them.
+// Dissolve / DissolveDirectional — shared material constants
+// Dissolve Properties block omits direction fields; DissolveDirectional exposes them.
 // ---------------------------------------------------------------------------
 
 CBUFFER_START(UnityPerMaterial)

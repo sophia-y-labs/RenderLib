@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E002 Lambert — material constants
+// Lambert — material constants
 // Property names must match RenderLib_Lambert.shader Properties block.
 // ---------------------------------------------------------------------------
 

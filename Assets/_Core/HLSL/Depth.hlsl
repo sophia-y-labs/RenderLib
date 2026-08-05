@@ -34,7 +34,7 @@ float RenderLib_LinearEyeDepth(float rawDepth)
 
 // ---------------------------------------------------------------------------
 // Linear01Depth: map raw depth to normalized [0, 1] linear range
-// Useful for post effects (Underwater E042, DOF E038)
+// Useful for post effects (Underwater, Depth of Field)
 // ---------------------------------------------------------------------------
 
 float RenderLib_Linear01Depth(float rawDepth)

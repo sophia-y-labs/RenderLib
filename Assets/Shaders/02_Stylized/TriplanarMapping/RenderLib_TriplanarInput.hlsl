@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E017 TriplanarMapping — material constants
+// TriplanarMapping — material constants
 // Property names must match RenderLib_Triplanar.shader Properties block.
 // ---------------------------------------------------------------------------
 

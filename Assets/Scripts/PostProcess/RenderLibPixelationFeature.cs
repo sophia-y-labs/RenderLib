@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 namespace RenderLib.PostProcess
 {
     /// <summary>
-    /// Full-screen pass for E030 Pixelation.
+    /// Full-screen pass for Pixelation.
     /// </summary>
     public sealed class RenderLibPixelationPass : RenderLibPostProcessPass
     {
@@ -34,7 +34,7 @@ namespace RenderLib.PostProcess
     }
 
     /// <summary>
-    /// Renderer Feature for E030 Pixelation. File name must match this class for Unity creation.
+    /// Renderer Feature for Pixelation. File name must match this class for Unity creation.
     /// </summary>
     public sealed class RenderLibPixelationFeature : RenderLibPostProcessFeature
     {

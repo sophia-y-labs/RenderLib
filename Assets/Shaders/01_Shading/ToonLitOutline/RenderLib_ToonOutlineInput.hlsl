@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E004 ToonOutline — material constants (Forward + Hull passes)
+// ToonOutline — material constants (Forward + Hull passes)
 // Property names must match RenderLib_ToonOutline.shader Properties block.
 // ---------------------------------------------------------------------------
 

@@ -7,7 +7,7 @@
 #include "RenderLib_SSSInput.hlsl"
 
 // ---------------------------------------------------------------------------
-// E006 SSS — Wrap diffuse + backlight translucency (optional thickness map)
+// SSS — Wrap diffuse + backlight translucency (optional thickness map)
 // ---------------------------------------------------------------------------
 
 struct Attributes

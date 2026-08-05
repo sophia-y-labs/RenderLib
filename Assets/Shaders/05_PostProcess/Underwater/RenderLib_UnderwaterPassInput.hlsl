@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E042 Underwater — blit material constants
+// Underwater — blit material constants
 // Keep names in sync with Volume → Feature SetFloat/SetColor IDs.
 // ---------------------------------------------------------------------------
 

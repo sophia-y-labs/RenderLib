@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E019 Flipbook — material constants
+// Flipbook — material constants
 // Property names must match RenderLib_Flipbook.shader Properties block.
 // ---------------------------------------------------------------------------
 

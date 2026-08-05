@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E043 TerrainBlend — material constants
+// TerrainBlend — material constants
 // Control.RGBA weights Layer0..3. Layer alpha is used as height for blending.
 // ---------------------------------------------------------------------------
 

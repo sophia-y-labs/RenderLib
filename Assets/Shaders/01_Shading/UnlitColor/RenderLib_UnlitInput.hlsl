@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E001 Unlit — material constants
+// Unlit — material constants
 // Property names must match RenderLib_Unlit.shader Properties block.
 // ---------------------------------------------------------------------------
 

@@ -6,7 +6,7 @@
 #include "RenderLib_MatCapInput.hlsl"
 
 // ---------------------------------------------------------------------------
-// E005 MatCap — view-space normal lookup (no main light required)
+// MatCap — view-space normal lookup (no main light required)
 // matcapUV = encode(mul(V, N).xy) into [0,1]
 // ---------------------------------------------------------------------------
 

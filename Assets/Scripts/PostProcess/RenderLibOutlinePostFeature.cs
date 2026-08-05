@@ -36,7 +36,7 @@ namespace RenderLib.PostProcess
     }
 
     /// <summary>
-    /// Renderer Feature for E031 Outline Post. File name must match this class.
+    /// Renderer Feature for Outline Post. File name must match this class.
     /// </summary>
     public sealed class RenderLibOutlinePostFeature : RenderLibPostProcessFeature
     {

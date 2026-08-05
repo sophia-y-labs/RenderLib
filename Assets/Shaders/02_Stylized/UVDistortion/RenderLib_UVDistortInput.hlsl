@@ -4,7 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 // ---------------------------------------------------------------------------
-// E016 UVDistortion — material constants
+// UVDistortion — material constants
 // Property names must match RenderLib_UVDistort.shader Properties block.
 // ---------------------------------------------------------------------------
 

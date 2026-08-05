@@ -84,6 +84,39 @@ float2 RenderLib_PolarToCartesianUV(float2 polar, float2 center)
 }
 
 // ---------------------------------------------------------------------------
+// FlowMap: decode RG flow vectors and dual-phase UVs
+// Flow textures store direction in RG as [0,1]; neutral (0.5, 0.5) = no flow.
+// Dual-phase blend hides the frac(time) discontinuity (see FlowMap).
+// ---------------------------------------------------------------------------
+
+float2 RenderLib_DecodeFlow(float2 flowRG)
+{
+    return flowRG * 2.0 - 1.0;
+}
+
+// time01 typically frac(_Time.y * speed); strength scales UV displacement.
+// Out: uv0 / uv1 for two staggered samples; blend in [0,1] (triangle weight).
+void RenderLib_FlowMapUVs(
+    float2 uv,
+    float2 flow,
+    float  time01,
+    float  strength,
+    out float2 uv0,
+    out float2 uv1,
+    out float  blend)
+{
+    float phase0 = frac(time01);
+    float phase1 = frac(time01 + 0.5);
+
+    uv0 = uv + flow * phase0 * strength;
+    uv1 = uv + flow * phase1 * strength;
+
+    // Triangle weight: 0 at phase wrap (0/1), 1 at mid-cycle (0.5)
+    // so the sample that jumps is invisible; the staggered sample carries the frame.
+    blend = 1.0 - abs(1.0 - 2.0 * phase0);
+}
+
+// ---------------------------------------------------------------------------
 // TriplanarSample: world-space projection without explicit UVs
 // Requires TEXTURE2D_* macros from URP Core.hlsl
 // scale = world units per texture repeat (e.g. 0.25 = 4 repeats per meter)
