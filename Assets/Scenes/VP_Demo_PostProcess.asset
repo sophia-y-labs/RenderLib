@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda130b8f103b30499d9caf3f262a073, type: 3}
   m_Name: RenderLibUnderwaterVolume
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d878441959fac14f988d69d2e8a11ea, type: 3}
   m_Name: RenderLibPixelationVolume
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   intensity:
     m_OverrideState: 1
     m_Value: 0.3

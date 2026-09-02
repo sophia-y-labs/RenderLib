@@ -79,3 +79,8 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 docs/PLAN.md
+docs/superpowers/
+
+# Local-only Game view screenshot helper (not shipped)
+/[Aa]ssets/Scripts/Editor/
+/[Aa]ssets/Scripts/Editor.meta

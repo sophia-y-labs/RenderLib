@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df275fed78c28354aa73de6f79ddc0f5, type: 3}
   m_Name: RenderLibPixelationFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   m_Shader: {fileID: 4800000, guid: 879176d3b5b62154b992fb5c3c37048a, type: 3}
   m_Intensity: 0
 --- !u!114 &11400000
